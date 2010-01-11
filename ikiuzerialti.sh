@@ -74,7 +74,7 @@ sed -e 's/from pisi\.actionsapi import pisitools/from pisi\.actionsapi import pi
 
 #fix for nspr
 echo "nspr x86-64 için uygun hale getiriliyor"
-sed 's/--prefix=\/usr/--prefix=\/usr \\ \n                       --enable-64bit/g' $source/network/library/nspr/actions.py > $destination/network/library/nspr/actions.py
+sed 's/--prefix=\/usr/--prefix=\/usr \\\n                       --enable-64bit/g' $source/network/library/nspr/actions.py > $destination/network/library/nspr/actions.py
 
 #fix for nss
 echo "nss x86-64 için uygun hale getiriliyor"
