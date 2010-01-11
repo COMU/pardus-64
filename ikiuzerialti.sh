@@ -37,7 +37,7 @@ sed 's/pisitools\.dosym("share\/man", "\/usr\/local\/man")/pisitools\.dosym("sha
 
 #fix for gcc
 echo "gcc x86-64 için uygun hale getiriliyor"
-sed -e 's/--enable-ssp /--enable-ssp \\ \n                       --enable-long-long /g' -e 's/-march=i686/-march=x86-64/g' -e 's/\/usr\/lib\/libiberty\.a/\/usr\/lib64\/libiberty\.a/' $source/system/devel/gcc/actions.py > $destination/system/devel/gcc/actions.py
+sed -e 's/--enable-ssp /--enable-ssp \\\n                       --enable-long-long /g' -e 's/-march=i686/-march=x86-64/g' -e 's/\/usr\/lib\/libiberty\.a/\/usr\/lib64\/libiberty\.a/' $source/system/devel/gcc/actions.py > $destination/system/devel/gcc/actions.py
 sed -e 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/usr\/lib<\/Path>\n             <Path fileType="library">\/usr\/lib64<\/Path>/' -e 's/\/usr\/lib\//\/usr\/lib64\//'  $source/system/devel/gcc/pspec.xml > $destination/system/devel/gcc/pspec.xml
 
 #fix for klibc
