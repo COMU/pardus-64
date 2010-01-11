@@ -310,7 +310,7 @@ sed 's/i686-pc-linux-gnu/x86_64-pc-linux-gnu-/' $source/system/devel/icecream/ac
 
 #fix for cups
 echo "cups x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path> \n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' $source/hardware/printer/cups/pspec.xml > $destination/hardware/printer/cups/pspec.xml
+sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/usr\/lib<\/Path>\n             <Path fileType="library">\/usr\/lib64<\/Path>/g' $source/hardware/printer/cups/pspec.xml > $destination/hardware/printer/cups/pspec.xml
 
 #fix for procps
 echo "procps x86_64 için uygun hale getiriliyor"
