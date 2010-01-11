@@ -331,7 +331,7 @@ sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\
 
 #fix for jack-audio-connection-kit
 echo "jack-audio-connection-kit x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path> \n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' $source/multimedia/sound/jack-audio-connection-kit/pspec.xml > $destination/multimedia/sound/jack-audio-connection-kit/pspec.xml
+sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/usr\/lib<\/Path>\n             <Path fileType="library">\/usr\/lib64<\/Path>/g' $source/multimedia/sound/jack-audio-connection-kit/pspec.xml > $destination/multimedia/sound/jack-audio-connection-kit/pspec.xml
 
 #fix for gpac
 echo "gpac x86_64 için uygun hale getiriliyor"
