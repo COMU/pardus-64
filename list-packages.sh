@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "/corporate2/devel-x86_64 için cd icerigi hazirlaniyor."
-echo "#" >> /var/pisi/workQueue
+echo "#" > workQueue
 echo "" > olmayanlar.txt
 echo "" > liste.txt
 svn co http://svn.pardus.org.tr/uludag/trunk/distribution/Corporate2/project-files
@@ -15,15 +15,15 @@ do
     if [ "$a" == "" ]; then
         echo $line >> olmayanlar.txt
     else
-        echo $a >> /var/pisi/workQueue
+        echo $a >> workQueue
     fi
 done
 exec<"liste3.txt"
 while read line
 do
-    find /corporate2/devel-x86_64/$line -name pspec.xml >> /var/pisi/workQueue
+    find /corporate2/devel-x86_64/$line -name pspec.xml >> workQueue
 done
-find /corporate2/devel-x86_64/system/devel -name pspec.xml >> /var/pisi/workQueue
+find /corporate2/devel-x86_64/system/devel -name pspec.xml >> workQueue
 python get_dep.py
 exec<"dep.txt"
 while read line
@@ -33,8 +33,8 @@ do
     if [ "$a" == "" ]; then
         echo $line >> olmayanlar.txt
     else
-        echo $a >> /var/pisi/workQueue
+        echo $a >> workQueue
     fi
 done
-rm olmayanlar.txt liste.txt dep.txt liste3.txt liste2.txt
+rm  liste.txt dep.txt liste3.txt liste2.txt
 echo "bitti"
