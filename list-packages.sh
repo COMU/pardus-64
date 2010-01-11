@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "/corporate2/devel-x86_64 için cd icerigi hazirlaniyor."
-echo "" > son.txt
+echo "#" >> /var/pisi/workQueue
 echo "" > olmayanlar.txt
 echo "" > liste.txt
 svn co http://svn.pardus.org.tr/uludag/trunk/distribution/Corporate2/project-files
@@ -10,18 +10,31 @@ sed 's/\./\//g' liste2.txt > liste3.txt
 exec<"liste.txt"
 while read line
 do
-    a=$( find /corporate2/devel/ -name pspec.xml | grep /$line/pspec.xml)
+    a=$( find /corporate2/devel-x86_64/ -name pspec.xml | grep /$line/pspec.xml)
     echo $a
     if [ "$a" == "" ]; then
         echo $line >> olmayanlar.txt
     else
-        echo $a>>son.txt
+        echo $a >> /var/pisi/workQueue
     fi
 done
 exec<"liste3.txt"
 while read line
 do
-    find /corporate2/devel/$line -name pspec.xml >> son.txt
+    find /corporate2/devel-x86_64/$line -name pspec.xml >> /var/pisi/workQueue
 done
-find /corporate2/devel/system/devel -name pspec.xml >> son.txt
+find /corporate2/devel-x86_64/system/devel -name pspec.xml >> /var/pisi/workQueue
+python get_dep.py
+exec<"dep.txt"
+while read line
+do
+    a=$( find /corporate2/devel-x86_64/ -name pspec.xml | grep /$line/pspec.xml)
+    echo $a
+    if [ "$a" == "" ]; then
+        echo $line >> olmayanlar.txt
+    else
+        echo $a >> /var/pisi/workQueue
+    fi
+done
+rm olmayanlar.txt liste.txt dep.txt liste3.txt liste2.txt
 echo "bitti"
