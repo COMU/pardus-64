@@ -197,10 +197,7 @@ sed 's/i686/x86_64/g' /corporate2/devel/hardware/printer/foomatic-db-engine/acti
 
 ###### patches ######
 
-#fix for comar
-echo "comar x86-64 için uygun hale getiriliyor"
-cp files/comar-dict-pos.patch /corporate2/devel-x86_64/system/base/comar/files/
-sed 's/<\/Patches>/    <Patch>comar-dict-pos\.patch<\/Patch>\n        <\/Patches>/g' /corporate2/devel/system/base/comar/pspec.xml > /corporate2/devel-x86_64/system/base/comar/pspec.xml
+#no need a fix for comar
 
 #fix for pisi
 echo "pisi x86-64 için uygun hale getiriliyor"
