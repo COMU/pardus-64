@@ -1,6 +1,21 @@
 #!/bin/sh
 
-workquery=son.txt
+# Belirenen surumdeki cd içeriğinin build farm için hazırlanmasini saglayan ufak tefek bir scripttir.
+#
+# Kendisi get_dep.py ile çalışmaktadadır. bu yüzden tek başına pek az işe yarayacaktır.(bağımlılıklarını bulamama gibi kritik işleri get_dep.py halletmektededir.)
+#
+
+usage(){
+ echo "usage: list-packages.sh sourceDir OutPutFile"
+
+}
+
+if [ "$#" -lt 2 ]; then { usage;  exit 1; } fi
+
+source="$1"
+workquery="$2"
+
+[ -d "$source" ] || { echo -e "Error: $source directory not exist"; exit 1; }
 
 echo "/corporate2/devel-x86_64 için cd icerigi hazirlaniyor."
 echo "#" > $workquery
@@ -15,7 +30,7 @@ sed 's/\./\//g' liste2.txt > liste3.txt
 exec<"liste.txt"
 while read line
 do
-    a=$( find /corporate2/devel-x86_64/ -name pspec.xml | grep /$line/pspec.xml)
+    a=$( find $source/ -name pspec.xml | grep /$line/pspec.xml)
     echo $a
     if [ "$a" == "" ]; then
         echo $line >> olmayanlar.txt
@@ -26,14 +41,14 @@ done
 exec<"liste3.txt"
 while read line
 do
-    find /corporate2/devel-x86_64/$line -name pspec.xml >> $workquery
+    find $source/$line -name pspec.xml >> $workquery
 done
-find /corporate2/devel-x86_64/system/devel -name pspec.xml >> $workquery
+find $source/system/devel -name pspec.xml >> $workquery
 python get_dep.py -f $workquery
 exec<"dep.txt"
 while read line
 do
-    a=$( find /corporate2/devel-x86_64/ -name pspec.xml | grep /$line/pspec.xml)
+    a=$( find $source/ -name pspec.xml | grep /$line/pspec.xml)
     echo $a
     if [ "$a" == "" ]; then
         echo $line >> olmayanlar.txt
