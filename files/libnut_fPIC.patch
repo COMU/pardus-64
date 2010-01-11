@@ -1,0 +1,12 @@
+diff -Nuar nut.orig/config.mak nut/config.mak
+--- nut.orig/config.mak	2009-12-27 00:35:14.157109809 +0200
++++ nut/config.mak	2009-12-27 00:35:27.313373363 +0200
+@@ -5,7 +5,7 @@
+ 
+ CFLAGS += -Os -fomit-frame-pointer -g -Wall
+ 
+-CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
++CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -fPIC
+ 
+ CC = cc
+ RANLIB  = ranlib
