@@ -197,7 +197,7 @@ sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/u
 #fix for binutils
 echo "binutils x86-64 için uygun hale getiriliyor."
 sed -e  's/\/usr\/lib\/libiberty\.a/\/usr\/lib64\/libiberty\.a/g' -e 's/"\/usr\/lib", "libiberty\/libiberty\.a"/"\/usr\/lib64", "libiberty\/libiberty\.a"/g' $source/system/devel/binutils/actions.py > $destination/system/devel/binutils/actions.py
-sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/usr\/lib<\/Path> \n             <Path fileType="library">\/usr\/lib64<\/Path>/g' $source/system/devel/binutils/pspec.xml > $destination/system/devel/binutils/pspec.xml
+sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/usr\/lib<\/Path>\n             <Path fileType="library">\/usr\/lib64<\/Path>/g' $source/system/devel/binutils/pspec.xml > $destination/system/devel/binutils/pspec.xml
 
 #fix for iceream
 echo "iceream x86-64 için uygun hale getiriliyor."

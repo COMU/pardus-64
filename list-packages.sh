@@ -1,6 +1,6 @@
 #!/bin/sh
 
-workquery=workQueue2
+workquery=son.txt
 
 echo "/corporate2/devel-x86_64 için cd icerigi hazirlaniyor."
 echo "#" > $workquery
