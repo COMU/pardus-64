@@ -1,43 +1,39 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import optparse
 
 import pisi
 dep_list = {}
 
+
 list_packages  = open('liste.txt', 'r')
-list_pspec_xml  = open('son.txt', 'r')
-list_pspec =  list_pspec_xml.readlines()
 had_packages = list_packages.readlines()
-list_packages.close()
-list_pspec_xml.close()
-
-
 def main():
-    usage = "usage: %prog [options] path/to/noan path/to/repo/source"
+    usage = "usage: %prog [options] path/query"
     parser = optparse.OptionParser(usage=usage)
-    parser.add_option("-r", "--release", dest="release",
-                      help="Use RELEASE as ditro version instead", metavar="RELEASE")
-    parser.add_option("-u", "--update",
+    parser.add_option("-f", "--file",
                       action="store_false", dest="full", default=True,
-                      help="Run SVN UP and load changed files only")
+                      help="Where is the file where i put to output")
 
     (options, args) = parser.parse_args()
-    if len(args) != 2:
+    if len(args) != 1:
         parser.error("Incorrect number of arguments")
-
-    path_noan, path_source = args
-
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'noan.settings'
-    sys.path.insert(0, path_noan)
-    try:
-        import noan.settings
-    except ImportError:
-        parser.error('Noan path is invalid.')
-
-    updateDB(path_source, options.full, options.release)
+    path_output = args[0]
+    print path_output
+    list_pspec_xml  = open(path_output, 'r')
+    list_pspec =  list_pspec_xml.readlines()
+    list_packages.close()
+    list_pspec_xml.close()
+    for i in list_pspec:
+        importSpec(i)
+    hede  = open('dep.txt', 'w')
+    hodu =  hede.writelines(dep_list.keys())
+    hede.close
 
 def importSpec(_spec):
     _spec = _spec.split("\n")[0]
+    if (_spec == '#'):
+        return
     pspec = pisi.specfile.SpecFile(_spec)
     for dep in pspec.source.buildDependencies:
         if dep.package+"\n" in had_packages:
@@ -57,10 +53,7 @@ def importSpec(_spec):
                     print dep.package," var."
                 else:
                     dep_list[dep.package+"\n"] = ""
-for i in list_pspec:
-    importSpec(i)
 
-
-hede  = open('dep.txt', 'w')
-hodu =  hede.writelines(dep_list.keys())
-hede.close
+if __name__ == '__main__':
+    
+    main()
