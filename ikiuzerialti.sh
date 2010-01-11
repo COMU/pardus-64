@@ -2,28 +2,18 @@
 #Pardus Corporate 2 sürümünün 32 bit devel deposunu 64 bite çevirmek için gerekli işlemlerin yapılmasını sağlamak için yazılmış bir betiktir.
 #Yakın zamanda fezaya bayrak dikmesi planlanmaktadır.
 
-case "$1" in
+usage(){
+ echo "usage "
 
-    -s|--source)
-     source="$2"
+}
 
-     if [ "$3" != "-d" ]
-         then
-             echo "option $3";
-             exit 1;
-     fi
-     destination="$4"
+if [ "$#" -lt 2 ]; then { usage;  exit 1; } fi
 
-     [ -d "$source" ] || { echo -e "Error: $source directory not exist"; exit 1; }
-     [ -d "$destination" ] || { echo -e "Error: $destination directory not exist"; exit 1; }
-     ;;
+source="$1"
+destination="$2"
 
-    *)
-     echo "usage"
-     exit 1;
-     ;;
-esac
-
+[ -d "$source" ] || { echo -e "Error: $source directory not exist"; exit 1; }
+[ -d "$destination" ] || { echo -e "Error: $destination directory not exist"; exit 1; }
 
 cp -R $source/* $destination/
 
