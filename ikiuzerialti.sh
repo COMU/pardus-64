@@ -140,6 +140,10 @@ sed 's/i686/x86_64/' $source/programming/vcs/subversion/pspec.xml > $destination
 echo "pygame x86-64 için uygun hale getiriliyor."
 sed 's/i686/x86_64/g' $source/programming/language/python/pygame/actions.py > $destination/programming/language/python/pygame/actions.py
 
+#fix for dev86
+echo "dev86 x86-64 için uygun hale getiriliyor."
+sed 's/def build():/def setup():\n    pisitools.dosed("makefile.in", "alt-libs elksemu", "alt-libs")\n    pisitools.dosed("makefile.in", "install-lib install-emu", "install-lib")\n\ndef build():/' $source/programming/tool/dev86/actions.py > $destination/programming/tool/dev86/actions.py
+
 #fix for libx86
 echo "libx86 x86-64 için uygun hale getiriliyor."
 sed 's/make()/make("BACKEND=x86emu")/g' $source/hardware/library/libx86/actions.py > $destination/hardware/library/libx86/actions.py
