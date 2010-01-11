@@ -7,7 +7,7 @@ cp -R /corporate2/devel /corporate2/devel-x86_64
 #fix for glibc
 echo "glibc x86-64 için uygun hale getiriliyor"
 sed 's/-march=i686/-march=x86-64/g' /corporate2/devel/system/base/glibc/actions.py > /corporate2/devel-x86_64/system/base/glibc/actions.py
-sed -e 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/Path> \n             <Path fileType="library">\/lib64<\/Path>/g' -e 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path> \n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' /corporate2/devel/system/base/glibc/pspec.xml > /corporate2/devel-x86_64/system/base/glibc/pspec.xml
+sed -e 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/Path>\n             <Path fileType="library">\/lib64<\/Path>/g' -e 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path>\n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' /corporate2/devel/system/base/glibc/pspec.xml > /corporate2/devel-x86_64/system/base/glibc/pspec.xml
 
 #fix for python
 echo "pytho x86-64 için uygun hale getiriliyor"
