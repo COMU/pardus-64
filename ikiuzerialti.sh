@@ -129,6 +129,10 @@ sed 's/i686/x86_64/g' /corporate2/devel/programming/language/perl/perl-Digest-HM
 echo "perl-Carp-Clan x86-64 için uygun hale getiriliyor"
 sed 's/i686/x86_64/g' /corporate2/devel/programming/language/perl/perl-Carp-Clan/actions.py > /corporate2/devel-x86_64/programming/language/perl/perl-Carp-Clan/actions.py
 
+#fix for perl-Crypt-PasswdMD5
+echo "perl-Crypt-PasswdMD5 x86-64 için uygun hale getiriliyor"
+sed 's/i686/x86_64/g' /corporate2/devel/programming/language/perl/perl-Crypt-PasswdMD5/actions.py > /corporate2/devel-x86_64/programming/language/perl/perl-Crypt-PasswdMD5/actions.py
+
 #fix for perl-Convert-ASN1
 echo "perl-Convert-ASN1 x86-64 için uygun hale getiriliyor"
 sed 's/i686/x86_64/g' /corporate2/devel/programming/language/perl/perl-Convert-ASN1/actions.py > /corporate2/devel-x86_64/programming/language/perl/perl-Convert-ASN1/actions.py
