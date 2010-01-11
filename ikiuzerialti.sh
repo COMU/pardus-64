@@ -25,7 +25,7 @@ case "$1" in
 esac
 
 
-cp -R $source $destination
+cp -R $source/* $destination/
 
 #fix for glibc
 echo "glibc x86-64 için uygun hale getiriliyor"
@@ -60,7 +60,7 @@ grep -v 'enable-fat' $source/system/devel/gmp/actions.py > $destination/system/d
 
 #fix for valgrind
 echo "valgrind x86-64 için uygun hale getiriliyor"
-sed 's/--with-x/--with-x \\ \n --enable-only64bit/g' $source/programming/profiler/valgrind/actions.py > $destination/programming/profiler/valgrind/actions.py
+sed 's/--with-x/--with-x \\\n --enable-only64bit/g' $source/programming/profiler/valgrind/actions.py > $destination/programming/profiler/valgrind/actions.py
 
 #fix for ncompress
 echo "ncompress x86-64 için uygun hale getiriliyor"
@@ -116,7 +116,7 @@ sed 's/-mcpu=i686/-mcpu=x86-64/g' $source/programming/library/libstdc++/actions.
 
 #fix for metis
 echo "metis x86-64 için uygun hale getiriliyor."
-sed 's/WorkDir="metis-4\.0/"WorkDir="metis-4.0"\n\ndef setup():\n    pisitools.dosed("Makefile\.in", "COPTIONS = ",  "COPTIONS = -fPIC")/g' $source/programming/library/metis/actions.py > $destination/programming/library/metis/actions.py
+sed 's/WorkDir="metis-4\.0/WorkDir="metis-4.0"\n\ndef setup():\n    pisitools.dosed("Makefile\.in", "COPTIONS = ",  "COPTIONS = -fPIC")/g' $source/programming/library/metis/actions.py > $destination/programming/library/metis/actions.py
 
 #fix for spidermonkey
 echo "spidermonkey x86-64 için uygun hale getiriliyor."
@@ -216,7 +216,7 @@ sed 's/for chost in \["", "i686-pc-linux-gnu-"\]:/host= get\.HOST()+"-"\n    for
 
 #fix for module-fglrx
 echo "module-fglrx x86-64 için uygun hale getiriliyor"
-sed -e 's/arch\/x86\/usr\/lib/arch\/x86_64\/usr\/lib64/g' -e 's/arch\/x86\/usr\/X11R6\/lib/arch\/x86_64\/usr\/X11R6\/lib64/g'  -e 's/arch\/x86\/usr/arch\/x86_64\/usr/g' -e 's/arch\/x86\/lib\//arch\/x86_64\/lib\//g' $source/kernel/default/drivers/module-fglrx/actions.py > $destination/kernel/default/drivers/module-fglrx/actions.py
+sed -e 's/arch\/x86\/usr\/lib/arch\/x86_64\/usr\/lib64/' -e 's/arch\/x86\/usr\/X11R6\/lib/arch\/x86_64\/usr\/X11R6\/lib64/'  -e 's/arch\/x86\/usr/arch\/x86_64\/usr/' -e 's/arch\/x86\/lib\//arch\/x86_64\/lib\//' $source/kernel/default/drivers/module-fglrx/actions.py > $destination/kernel/default/drivers/module-fglrx/actions.py
 
 #fix for foomatic-db-engine
 echo "foomatic-db-engine x86-64 için uygun hale getiriliyor"
