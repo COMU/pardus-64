@@ -15,6 +15,11 @@ destination="$2"
 [ -d "$source" ] || { echo -e "Error: $source directory not exist"; exit 1; }
 [ -d "$destination" ] || { echo -e "Error: $destination directory not exist"; exit 1; }
 
+
+#echo ' ' | grep $component | awk -F"\n" '{  system($1); } '
+#  sed -e 's/$source/'$source'/' -e 's/$destination/'$destination'/'   filename
+
+
 cp -R $source/* $destination/
 
 #fix for glibc
