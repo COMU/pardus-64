@@ -299,20 +299,20 @@ sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/u
 
 #fix for procps
 echo "procps x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/Path> \n             <Path fileType="library">\/lib64<\/Path>/g' $source/system/base/procps/pspec.xml > $destination/system/base/procps/pspec.xml
+sed 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/Path>\n             <Path fileType="library">\/lib64<\/Path>/g' $source/system/base/procps/pspec.xml > $destination/system/base/procps/pspec.xml
 
 #fix for libcap
 echo "libcap x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/Path> \n             <Path fileType="library">\/lib64<\/Path>/g' $source/system/base/libcap/pspec.xml > $destination/system/base/libcap/pspec.xml
+sed 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/Path>\n             <Path fileType="library">\/lib64<\/Path>/g' $source/system/base/libcap/pspec.xml > $destination/system/base/libcap/pspec.xml
 sed 's/pisitools\.remove("\/lib\/libcap\.a")/pisitools\.remove("\/lib64\/libcap\.a")/' $source/system/base/libcap/actions.py > $destination/system/base/libcap/actions.py
 
 #fix for Xaw3d
 echo "Xaw3d x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/Path> \n             <Path fileType="library">\/lib64<\/Path>/g' $source/x11/library/Xaw3d/pspec.xml > $destination/x11/library/Xaw3d/pspec.xml
+sed 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/Path>\n             <Path fileType="library">\/lib64<\/Path>/g' $source/x11/library/Xaw3d/pspec.xml > $destination/x11/library/Xaw3d/pspec.xml
 
 #fix for graphviz
 echo "graphviz x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path> \n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' $source/multimedia/graphics/graphviz/pspec.xml > $destination/multimedia/graphics/graphviz/pspec.xml
+sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path>\n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' $source/multimedia/graphics/graphviz/pspec.xml > $destination/multimedia/graphics/graphviz/pspec.xml
 
 #fix for jack-audio-connection-kit
 echo "jack-audio-connection-kit x86_64 için uygun hale getiriliyor"
@@ -320,7 +320,7 @@ sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/u
 
 #fix for gpac
 echo "gpac x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path> \n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' $source/multimedia/video/gpac/pspec.xml > $destination/multimedia/video/gpac/pspec.xml
+sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path>\n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' $source/multimedia/video/gpac/pspec.xml > $destination/multimedia/video/gpac/pspec.xml
 
 ##### removed ######
 
