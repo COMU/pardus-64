@@ -15,13 +15,19 @@ destination="$2"
 [ -d "$source" ] || { echo -e "Error: $source directory not exist"; exit 1; }
 [ -d "$destination" ] || { echo -e "Error: $destination directory not exist"; exit 1; }
 
-component= echo "$3" | sed -e 's/\./\//'
+component=""
+
+if [ "$3" != "all" ];then
+    component= echo "$3" | sed -e 's/\./\//'
+fi
+
+echo $component
 
 cp -R  $source/* $destination/ && 
 
 if [ -d "$source/$component"  ]  || { echo -e " $component bilesen bulunamad "; exit 1; }
 
-cat meltem.sh | grep $component | sed -e 's/$source/'$source'/' -e 's/$destination/'$destination'/' | awk -F"\n" '{  system($1); } '
+cat ikiuzerialti.sh | grep $component | sed -e 's/$source/'$source'/' -e 's/$destination/'$destination'/' | awk -F"\n" '{  system($1); } '
 
 
 
