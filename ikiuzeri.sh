@@ -15,7 +15,7 @@ destination="$2"
 [ -d "$source" ] || { echo -e "Error: $source directory not exist"; exit 1; }
 [ -d "$destination" ] || { echo -e "Error: $destination directory not exist"; exit 1; }
 
-component="$3"
+component= echo "$3" | sed -e 's/\./\//'
 
 cp -R  $source/* $destination/ && 
 
