@@ -13,14 +13,12 @@ if [ "$#" -lt 2 ]; then { usage;  exit 1; } fi
 
 component=""
 
-if [ "$3" != "all" ]; then
-    component=`echo "$3" | sed -e 's/\./\//' `
-fi
+if [ "$3" != "all" ]; then { component=`echo "$3" | sed -e 's/\./\//' `; } fi
 [ -d "$1/devel/$component"  ]  || { echo -e " $component not found component "; exit 1; }
 
 source="$1"
 destination="$2"
-#cp -R  $source/* $destination/ && 
+cp -R  $source/* $destination/ && 
 
 # devel eklenmeli ikiuzerialti.sh 'a
 echo "bilesen   $component source ${source//\//\\/}  destination ${destination//\//\\/}  "
