@@ -193,6 +193,10 @@ sed 's/for chost in \["", "i686-pc-linux-gnu-"\]:/host= get\.HOST()+"-"\n    for
 echo "module-fglrx x86-64 için uygun hale getiriliyor"
 sed -e 's/arch\/x86\/usr\/lib/arch\/x86_64\/usr\/lib64/' -e 's/arch\/x86\/usr\/X11R6\/lib/arch\/x86_64\/usr\/X11R6\/lib64/'  -e 's/arch\/x86\/usr/arch\/x86_64\/usr/' -e 's/arch\/x86\/lib\//arch\/x86_64\/lib\//' $source/kernel/default/drivers/module-fglrx/actions.py > $destination/kernel/default/drivers/module-fglrx/actions.py
 
+#fix for djbftt
+#echo "djbftt x86-64 için uygun hale getiriliyor"
+#sed -e 's/' /corporate2/devel/science/library/djbfft/actions.py > /corporate2/devel-x86_64/science/library/djbfft/actions.py
+
 #fix for foomatic-db-engine
 echo "foomatic-db-engine x86-64 için uygun hale getiriliyor"
 sed 's/i686/x86_64/g' $source/hardware/printer/foomatic-db-engine/actions.py > $destination/hardware/printer/foomatic-db-engine/actions.py
@@ -249,7 +253,7 @@ sed 's/        <\/Patches>/            <Patch level="1">0001-Fix-bug-when-compil
 #fix for aggdraw
 echo "aggdraw x86-64 için uygun hale getiriliyor"
 cp files/aggdraw-x86-64.patch $destination/programming/language/python/aggdraw/files/
-sed 's/        <\/Patches>/            <Patch level="1">aggdraw-x86-64\.patch<\/Patch>\n        <\/Patches>/g' $source/programming/language/python/aggdraw/pspec.xml > $destination/programming/language/python/aggdraw/pspec.xml
+sed 's/        <\/Patches>/            <Patch>aggdraw-x86-64\.patch<\/Patch>\n        <\/Patches>/g' $source/programming/language/python/aggdraw/pspec.xml > $destination/programming/language/python/aggdraw/pspec.xml
 
 ###### source ######
 
@@ -320,7 +324,7 @@ sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/u
 
 #fix for gpac
 echo "gpac x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path>\n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' $source/multimedia/video/gpac/pspec.xml > $destination/multimedia/video/gpac/pspec.xml
+sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/usr\/lib<\/Path>\n             <Path fileType="library">\/usr\/lib64<\/Path>/g' $source/multimedia/video/gpac/pspec.xml > $destination/multimedia/video/gpac/pspec.xml
 
 ##### removed ######
 
