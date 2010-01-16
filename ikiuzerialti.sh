@@ -119,6 +119,10 @@ sed 's/i686/x86_64/g' $source/programming/language/python/pygame/actions.py > $d
 echo "dev86 x86-64 için uygun hale getiriliyor."
 sed 's/def build():/def setup():\n    pisitools.dosed("makefile.in", "alt-libs elksemu", "alt-libs")\n    pisitools.dosed("makefile.in", "install-lib install-emu", "install-lib")\n\ndef build():/' $source/programming/tool/dev86/actions.py > $destination/programming/tool/dev86/actions.py
 
+#fix for imagemagick
+echo "imagemagick x86-64 için uygun hale getiriliyor"
+sed 's/i686/x86_64/g' $source/multimedia/graphics/imagemagick/actions.py > $destination/multimedia/graphics/imagemagick/actions.py
+
 #fix for libx86
 echo "libx86 x86-64 için uygun hale getiriliyor."
 sed 's/make()/make("BACKEND=x86emu")/g' $source/hardware/library/libx86/actions.py > $destination/hardware/library/libx86/actions.py
@@ -200,6 +204,22 @@ sed -e 's/arch\/x86\/usr\/lib/arch\/x86_64\/usr\/lib64/' -e 's/arch\/x86\/usr\/X
 #fix for foomatic-db-engine
 echo "foomatic-db-engine x86-64 için uygun hale getiriliyor"
 sed 's/i686/x86_64/g' $source/hardware/printer/foomatic-db-engine/actions.py > $destination/hardware/printer/foomatic-db-engine/actions.py
+
+#fix for mpg123
+echo "mpg123 x86-64 için uygun hale getiriliyor"
+sed 's/--with-cpu=sse/--with-cpu=x86-64/' $source/multimedia/sound/mpg123/actions.py > $destination/multimedia/sound/mpg123/actions.py
+
+#fix for squashfs-tools
+echo "squashfs-tools x86-64 için uygun hale getiriliyor"
+sed 's/def build():/def setup():\n    for f in \["LZMA\/C\/LzFind\.o", "LZMA\/C\/LzmaDec\.o", "LZMA\/C\/LzmaEnc\.o", "LZMA\/C\/LzmaLib\.o", "LZMA\/C\/Alloc\.o"\]:\n        shelltools\.unlink(f)\n\ndef build():/g' $source/hardware/disk/squashfs-tools/actions.py > $destination/hardware/disk/squashfs-tools/actions.py
+
+#fix for obexftp
+echo "obexftp x86-64 için uygun hale getiriliyor"
+sed 's/i686/x86_64/g' $source/hardware/library/obexftp/actions.py > $destination/hardware/library/obexftp/actions.py
+
+#fix for johntheripper
+echo "johntheripper x86-64 için uygun hale getiriliyor"
+sed 's/linux-x86-sse2/linux-x86-64/s' $source/util/crypt/johntheripper/actions.py > $destination/util/crypt/johntheripper/actions.py
 
 ###### patches ######
 
