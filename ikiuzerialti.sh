@@ -18,7 +18,7 @@ sed 's/i686/x86_64/g' $source/devel/system/base/perl/actions.py > $destination/s
 #fix for baselayout
 echo "baselayout x86-64 için uygun hale getiriliyor"
 sed 's/<Path fileType="library" permanent="true">\/lib<\/Path>/<Path fileType="library" permanent="true">\/lib<\/Path>\n            <Path fileType="library" permanent="true">\/lib64<\/Path>/' $source/devel/system/base/baselayout/pspec.xml > $destination/system/base/baselayout/pspec.xml
-sed 's/pisitools\.dosym("share\/man", "\/usr\/local\/man")/pisitools\.dosym("share\/man", "\/usr\/local\/man")\n    pisitools\.dosym("\/lib", "\/lib64")\n    pisitools\.dosym("\/usr\/lib", "\/usr\/lib64")/' $source/devel/system/base/baselayout/actions.py > $destination/system/base/baselayout/actions.py
+sed 's/pisitools\.dosym("share\/man", "\/usr\/local\/man")/pisitools\.dosym("share\/man", "\/usr\/local\/man")\n    pisitools\.dosym("lib", "lib64")\n    shelltools\.cd("%s\/usr" %get\.installDIR())\n    shelltools\.system("ln -s lib lib64")/' $source/devel/system/base/baselayout/actions.py > $destination/system/base/baselayout/actions.py
 
 #fix for gcc
 echo "gcc x86-64 için uygun hale getiriliyor"
@@ -35,7 +35,7 @@ grep -v 'enable-fat' $source/devel/system/devel/gmp/actions.py > $destination/sy
 
 #fix for valgrind
 echo "valgrind x86-64 için uygun hale getiriliyor"
-sed 's/--with-x/--with-x \\\n --enable-only64bit/g' $source/devel/programming/profiler/valgrind/actions.py > $destination/programming/profiler/valgrind/actions.py
+sed 's/--with-x/--with-x \\\n                         --enable-only64bit/g' $source/devel/programming/profiler/valgrind/actions.py > $destination/programming/profiler/valgrind/actions.py
 
 #fix for ncompress
 echo "ncompress x86-64 için uygun hale getiriliyor"
