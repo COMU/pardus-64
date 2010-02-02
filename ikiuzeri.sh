@@ -9,24 +9,27 @@ usage(){
 }
 
 if [ "$#" -lt 2 ]; then { usage;  exit 1; } fi
-[[ -d "$1" || -d "$2" ]] || { echo -e "Error:  directory not exist"; exit 1; }
+[[ -d "$1" ]] || { echo -e "Error:  directory not exist"; exit 1; }
+
+sourcecopy="$1"
+destcopy="$2"
 
 component=""
-if [ "$3" != "all" ]; then 
+if [ "$3" != "all" ]; then
   component=`echo "$3" | sed -e 's/\./\//g' `;
-  [ -d "$1/devel/$component"  ]  || { echo -e " $component not found component "; exit 1; }
-else 
-  component="s";
+  [ -d "$1/$component"  ]  || { echo -e " $component not found component "; exit 1; }
+  sourcecopy="$1/$component"
+  destcopy="$2/$component"
+else
+  component="/";
 fi
 
 
-source="$1"
-destination="$2"
+echo "hedef klasor olusturuluo--  >$component -----  $sourcecopy   -----     $destcopy"
+test -z $destcopy || mkdir -p $destcopy
 
 echo "kopyalamaya baslaniyor."
-#cp -R  $source/devel/* $destinatioin/ && 
-echo "kopyalama sonu"
+cp -R  $sourcecopy/* $destcopy/ &&  
 
-echo "secili bilesen souurce ve destination==   $component source ${source//\//\\/}  destination ${destination//\//\\/}  "
-
-sed -e 's/\$source/'${source//\//\\/}'/' -e 's/\$destination/'${destination//\//\\/}'/' ikiuzerialti.sh  |  grep $component |  awk -F"\n" '{  system($1); } '
+echo "secili bilesen souurce ve destination==   $component source ${1//\//\\/}  destination ${2//\//\\/}  "
+sed -e 's/\$source/'${1//\//\\/}'/' -e 's/\$destination/'${2//\//\\/}'/' ikiuzerialti.sh  |  grep $component |  awk -F"\n" '{  system($1); } '
