@@ -1,0 +1,14 @@
+--- linux-2.6.31/drivers/platform/x86/Kconfig	2010-01-12 16:46:29.912623899 +0200
++++ linux-2.6.31/drivers/platform/x86/Kconfig.new	2010-01-12 16:46:08.832623179 +0200
+@@ -429,9 +429,11 @@
+ config FSAM7400
+ 	tristate "Software RF kill switch for Fujitsu Siemens Amilo M 7400"
+ 	default m
++    select CHECK_SIGNATURE
+ 
+ config FSAM7440
+ 	tristate "Software RF kill switch for Fujitsu Siemens Amilo M 7440"
+ 	default m
++    select CHECK_SIGNATURE
+ 
+ endif # X86_PLATFORM_DEVICES
