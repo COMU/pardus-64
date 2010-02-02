@@ -239,6 +239,8 @@ sed 's/<Patch>pardus\/kernel-config\.patch<\/Patch>/<Patch level="1">kernel-conf
 
 sed 's/<Patch level="1">pardus\/linux-2\.6-add-fujitsu-amilo-74xx-rfkill-drivers\.patch<\/Patch>/<Patch level="1">pardus\/linux-2\.6-add-fujitsu-amilo-74xx-rfkill-drivers\.patch<\/Patch>\n\n            <\!-- Patch for Pardus64 to FSAM74XX devices, adding "select check_signature" -->\n            <Patch level="1">pardus\/fsam74XX-select_check_signature\.patch<\/Patch>\n/' $source/kernel/default/kernel/pspec.xml > $destination/kernel/default/kernel/pspec.xml
 
+sed 's/kernel-config\.patch/kernel-config-64bit\.patch/' $source/kernel/default/kernel/files/scripts/bump-config.py > $destination/kernel/default/kernel/files/scripts/bump-config.py
+
 #fix for firebird
 echo "firebird x86-64 için uygun hale getiriliyor"
 cp files/firebird-mcpu-to-mtune.patch $destination/server/database/firebird/files/
