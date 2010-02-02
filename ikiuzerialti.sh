@@ -235,7 +235,7 @@ echo "kernel x86-64 için uygun hale getiriliyor"
 cp files/kernel-config-64bit.patch $destination/kernel/default/kernel/files/pardus
 cp files/fsam74XX-select_check_signature.patch $destination/kernel/default/kernel/files/pardus
 
-sed 's/<Patch>pardus\/kernel-config\.patch<\/Patch>/<Patch level="1">kernel-config-64bit\.patch<\/Patch>/'  $source/kernel/default/kernel/pspec.xml > $destination/kernel/default/kernel/pspec.xml
+sed 's/<Patch>pardus\/kernel-config\.patch<\/Patch>/<Patch level="1">pardus\/kernel-config-64bit\.patch<\/Patch>/'  $source/kernel/default/kernel/pspec.xml > $destination/kernel/default/kernel/pspec.xml
 
 sed 's/<Patch level="1">pardus\/linux-2\.6-add-fujitsu-amilo-74xx-rfkill-drivers\.patch<\/Patch>/<Patch level="1">pardus\/linux-2\.6-add-fujitsu-amilo-74xx-rfkill-drivers\.patch<\/Patch>\n\n            <\!-- Patch for Pardus64 to FSAM74XX devices, adding "select check_signature" -->\n            <Patch level="1">pardus\/fsam74XX-select_check_signature\.patch<\/Patch>\n/' $source/kernel/default/kernel/pspec.xml > $destination/kernel/default/kernel/pspec.xml
 
