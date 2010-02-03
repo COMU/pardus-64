@@ -303,7 +303,7 @@ sed 's/<Archive sha1sum="099f486bbc3e8e16afd09e2fbf963b6e531a6846" type="targz">
 #fix for sun-jdk
 echo "sun-jdk x86-64 için uygun hale getiriliyor"
 sed -e 's/linux-i586\.bin/linux-amd64\.bin/' -e 's/plugin\/i386\/ns7/plugin\/amd64\/ns7/' $source/programming/language/java/sun-java/actions.py > $destination/programming/language/java/sun-java/actions.py
-sed 's/<Archive sha1sum="d09eea7fb48cd662abafbf490b0cb8340936095a" type="binary">http:\/\/download\.java\.net\/dlj\/binaries\/jdk-6u15-dlj-linux-i586\.bin<\/Archive>/<Archive sha1sum="77323aab8b59b5cf84ea09cb43e0e4a0c05e1f1a" type="binary">http:\/\/download\.java\.net\/dlj\/binaries\/jdk-6u15-dlj-linux-amd64\.bin<\/Archive>/' $source/programming/language/java/sun-java/pspec.xml > $destination/programming/language/java/sun-java/pspec.xml
+sed 's/<Archive sha1sum="bca59cb275f37b492e69ceecbda75a573d94b553" type="binary">http:\/\/download\.java\.net\/dlj\/binaries\/jdk-6u17-dlj-linux-i586\.bin<\/Archive>/<Archive sha1sum="a42bba8a2efe2a86403702507b99ff63086acea5" type="binary">http:\/\/download\.java\.net\/dlj\/binaries\/jdk-6u17-dlj-linux-amd64\.bin<\/Archive>/' $source/programming/language/java/sun-java/pspec.xml > $destination/programming/language/java/sun-java/pspec.xml
 
 #fix for catbox
 echo "catbox x86-64 için uygun hale getiriliyor"
