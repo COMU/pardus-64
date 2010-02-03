@@ -285,7 +285,7 @@ sed 's/        <\/Patches>/            <Patch>aggdraw-x86-64\.patch<\/Patch>\n  
 #fix for module-fglrx
 echo "module-fglrx x86-64 için uygun hale getiriliyor"
 sed 's/<Archive sha1sum="e987c1540f7d0141cfe9145442367d1e88314cc4" type="binary">http:\/\/a248\.e\.akamai\.net\/f\/674\/9206\/0\/www2\.ati\.com\/drivers\/linux\/ati-driver-installer-9-11-x86\.x86_64\.run<\/Archive>/<Archive sha1sum="c213b1ccd4130fbbb7e0ef828c32214e55fc15ba" type="binary">http:\/\/a248\.e\.akamai\.net\/f\/674\/9206\/0\/www2\.ati\.com\/drivers\/linux\/ati-driver-installer-9-12-x86\.x86_64\.run<\/Archive>/' $source/kernel/default/drivers/module-fglrx/pspec.xml > $destination/kernel/default/drivers/module-fglrx/pspec.xml
-sed 's/arch\/x86/arch/x86-64/' $source/kernel/default/drivers/module-fglrx/actions.py > $destination/kernel/default/drivers/module-fglrx/actions.py
+sed 's/arch\/x86/arch\/x86-64/' $source/kernel/default/drivers/module-fglrx/actions.py > $destination/kernel/default/drivers/module-fglrx/actions.py
 
 #fix for module-broadcom-wl
 echo "module-broadcom-wl x86-64 için uygun hale getiriliyor"
@@ -294,7 +294,7 @@ sed 's/<Archive sha1sum="80b413d810cbb3dbc8e2e7dfff9364656d042198" type="targz">
 #fix for module-nvidia-current
 echo "module-nvidia-current x86-64 için uygun hale getiriliyor"
 sed -e 's/NVIDIA-Linux-x86-/NVIDIA-Linux-x86_64-/' -e 's/usr\/lib\/vdpau\/libvdpau_trace\.so/usr\/lib\/libvdpau_trace\.so/' $source/kernel/default/drivers/module-nvidia-current/actions.py > $destination/kernel/default/drivers/module-nvidia-current/actions.py
-sed -e 's/<Archive sha1sum="6e5bd89fbd41358e2d19a80c87aab73dee983523" type="tarbz2">http:\/\/cekirdek.pardus.org.tr\/~fatih\/dist\/nvidia\/NVIDIA-Linux-x86-190.53.tar.bz2<\/Archive>/<Archive sha1sum="ea021fe181b2d86d97ee886dd2176c731cd5a565" type="tarbz2">http:\/\/members.comu.edu.tr\/nyucel\/source\/devel\/NVIDIA-Linux-x86_64-190.42.tar.bz2<\/Archive>/g' $source/kernel/default/drivers/module-nvidia-current/pspec.xml > $destination/kernel/default/drivers/module-nvidia-current/pspec.xml
+sed -e 's/<Archive sha1sum="6e5bd89fbd41358e2d19a80c87aab73dee983523" type="tarbz2">http:\/\/cekirdek\.pardus\.org\.tr\/~fatih\/dist\/nvidia\/NVIDIA-Linux-x86-190\.53\.tar\.bz2<\/Archive>/<Archive sha1sum="ea021fe181b2d86d97ee886dd2176c731cd5a565" type="tarbz2">http:\/\/members\.comu\.edu\.tr\/nyucel\/source\/devel\/NVIDIA-Linux-x86_64-190\.42\.tar\.bz2<\/Archive>/g' $source/kernel/default/drivers/module-nvidia-current/pspec.xml > $destination/kernel/default/drivers/module-nvidia-current/pspec.xml
 
 #fix for flashplugin
 echo "flashplugin x86-64 için uygun hale getiriliyor"
