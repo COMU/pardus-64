@@ -219,7 +219,7 @@ sed 's/i686/x86_64/g' $source/hardware/library/obexftp/actions.py > $destination
 
 #fix for johntheripper
 echo "johntheripper x86-64 için uygun hale getiriliyor"
-sed 's/linux-x86-sse2/linux-x86-64/s' $source/util/crypt/johntheripper/actions.py > $destination/util/crypt/johntheripper/actions.py
+sed 's/linux-x86-sse2/linux-x86-64/' $source/util/crypt/johntheripper/actions.py > $destination/util/crypt/johntheripper/actions.py
 
 ###### patches ######
 
