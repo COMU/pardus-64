@@ -315,7 +315,7 @@ sed 's/<Path fileType="library">\/lib<\/Path>/ <Path fileType="library">\/lib<\/
 
 #fix for binutils
 echo "binutils x86_64 için uygun hale getiriliyor"
-sed 's/<Path fileType="library">\/usr\/lib\/<\/Path>/ <Path fileType="library">\/usr\/lib\/<\/Path> \n             <Path fileType="library">\/usr\/lib64\/<\/Path>/g' $source/system/devel/binutils/pspec.xml > $destination/system/devel/binutils/pspec.xml
+sed 's/<Path fileType="library">\/usr\/lib<\/Path>/ <Path fileType="library">\/usr\/lib<\/Path> \n             <Path fileType="library">\/usr\/lib64<\/Path>/g' $source/system/devel/binutils/pspec.xml > $destination/system/devel/binutils/pspec.xml
 sed -e 's/pisitools\.remove("\/usr\/lib\/libiberty\.a")/pisitools\.remove("\/usr\/lib64\/libiberty\.a")/' -e 's/pisitools\.insinto("\/usr\/lib", "libiberty\/libiberty\.a")/pisitools\.insinto("\/usr\/lib64", "libiberty\/libiberty\.a")/' $source/system/devel/binutils/actions.py > $destination/system/devel/binutils/actions.py
 
 #fix for icecream
