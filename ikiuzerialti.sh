@@ -284,30 +284,30 @@ sed 's/        <\/Patches>/            <Patch>aggdraw-x86-64\.patch<\/Patch>\n  
 
 #fix for module-fglrx
 echo "module-fglrx x86-64 için uygun hale getiriliyor"
-sed 's/<Archive sha1sum="e987c1540f7d0141cfe9145442367d1e88314cc4" type="binary">http:\/\/a248\.e\.akamai\.net\/f\/674\/9206\/0\/www2\.ati\.com\/drivers\/linux\/ati-driver-installer-9-11-x86\.x86_64\.run<\/Archive>/<Archive sha1sum="c213b1ccd4130fbbb7e0ef828c32214e55fc15ba" type="binary">http:\/\/a248\.e\.akamai\.net\/f\/674\/9206\/0\/www2\.ati\.com\/drivers\/linux\/ati-driver-installer-9-12-x86\.x86_64\.run<\/Archive>/' $source/kernel/default/drivers/module-fglrx/pspec.xml > $destination/kernel/default/drivers/module-fglrx/pspec.xml
+sed 's/<Archive sha1sum="\.*" type="binary">http:\/\/a248\.e\.akamai\.net\/f\/674\/9206\/0\/www2\.ati\.com\/drivers\/linux\/ati-driver-installer-9-11-x86\.x86_64\.run<\/Archive>/<Archive sha1sum="c213b1ccd4130fbbb7e0ef828c32214e55fc15ba" type="binary">http:\/\/a248\.e\.akamai\.net\/f\/674\/9206\/0\/www2\.ati\.com\/drivers\/linux\/ati-driver-installer-9-12-x86\.x86_64\.run<\/Archive>/' $source/kernel/default/drivers/module-fglrx/pspec.xml > $destination/kernel/default/drivers/module-fglrx/pspec.xml
 sed 's/arch\/x86/arch\/x86-64/' $source/kernel/default/drivers/module-fglrx/actions.py > $destination/kernel/default/drivers/module-fglrx/actions.py
 
 #fix for module-broadcom-wl
 echo "module-broadcom-wl x86-64 için uygun hale getiriliyor"
-sed 's/<Archive sha1sum="80b413d810cbb3dbc8e2e7dfff9364656d042198" type="targz">http:\/\/www\.broadcom\.com\/docs\/linux_sta\/hybrid-portsrc-x86_32-v5\.10\.91\.9\.3\.tar\.gz<\/Archive>/<Archive sha1sum="a426712617bf3f1c03a0012e087a4735b527c53c" type="targz">http:\/\/www\.broadcom\.com\/docs\/linux_sta\/hybrid-portsrc-x86_64-v5\.10\.91\.9\.3\.tar\.gz<\/Archive>/' $source/kernel/default/drivers/module-broadcom-wl/pspec.xml > $destination/kernel/default/drivers/module-broadcom-wl/pspec.xml
+sed 's/<Archive sha1sum="\.*" type="targz">http:\/\/www\.broadcom\.com\/docs\/linux_sta\/hybrid-portsrc-x86_32-v5\.10\.91\.9\.3\.tar\.gz<\/Archive>/<Archive sha1sum="a426712617bf3f1c03a0012e087a4735b527c53c" type="targz">http:\/\/www\.broadcom\.com\/docs\/linux_sta\/hybrid-portsrc-x86_64-v5\.10\.91\.9\.3\.tar\.gz<\/Archive>/' $source/kernel/default/drivers/module-broadcom-wl/pspec.xml > $destination/kernel/default/drivers/module-broadcom-wl/pspec.xml
 
 #fix for module-nvidia-current
 echo "module-nvidia-current x86-64 için uygun hale getiriliyor"
 sed -e 's/NVIDIA-Linux-x86-/NVIDIA-Linux-x86_64-/' -e 's/usr\/lib\/vdpau\/libvdpau_trace\.so/usr\/lib\/libvdpau_trace\.so/' $source/kernel/default/drivers/module-nvidia-current/actions.py > $destination/kernel/default/drivers/module-nvidia-current/actions.py
-sed -e 's/<Archive sha1sum="6e5bd89fbd41358e2d19a80c87aab73dee983523" type="tarbz2">http:\/\/cekirdek\.pardus\.org\.tr\/~fatih\/dist\/nvidia\/NVIDIA-Linux-x86-190\.53\.tar\.bz2<\/Archive>/<Archive sha1sum="ea021fe181b2d86d97ee886dd2176c731cd5a565" type="tarbz2">http:\/\/members\.comu\.edu\.tr\/nyucel\/source\/devel\/NVIDIA-Linux-x86_64-190\.42\.tar\.bz2<\/Archive>/g' $source/kernel/default/drivers/module-nvidia-current/pspec.xml > $destination/kernel/default/drivers/module-nvidia-current/pspec.xml
+sed -e 's/<Archive sha1sum="\.*" type="tarbz2">http:\/\/cekirdek\.pardus\.org\.tr\/~fatih\/dist\/nvidia\/NVIDIA-Linux-x86-190\.53\.tar\.bz2<\/Archive>/<Archive sha1sum="ea021fe181b2d86d97ee886dd2176c731cd5a565" type="tarbz2">http:\/\/members\.comu\.edu\.tr\/nyucel\/source\/devel\/NVIDIA-Linux-x86_64-190\.42\.tar\.bz2<\/Archive>/g' $source/kernel/default/drivers/module-nvidia-current/pspec.xml > $destination/kernel/default/drivers/module-nvidia-current/pspec.xml
 
 #fix for flashplugin
 echo "flashplugin x86-64 için uygun hale getiriliyor"
-sed 's/<Archive sha1sum="099f486bbc3e8e16afd09e2fbf963b6e531a6846" type="targz">http:\/\/fpdownload\.macromedia\.com\/get\/flashplayer\/current\/install_flash_player_10_linux\.tar\.gz<\/Archive>/<Archive sha1sum="4a4f2e4dcf9857b83b7e0bac3e7476e2868cc027" type="targz">http:\/\/download\.macromedia\.com\/pub\/labs\/flashplayer10\/libflashplayer-10\.0\.42\.34\.linux-x86_64\.so\.tar\.gz<\/Archive>/' $source/network/plugin/flashplugin/pspec.xml > $destination/network/plugin/flashplugin/pspec.xml
+sed 's/<Archive sha1sum="\.*" type="targz">http:\/\/fpdownload\.macromedia\.com\/get\/flashplayer\/current\/install_flash_player_10_linux\.tar\.gz<\/Archive>/<Archive sha1sum="4a4f2e4dcf9857b83b7e0bac3e7476e2868cc027" type="targz">http:\/\/download\.macromedia\.com\/pub\/labs\/flashplayer10\/libflashplayer-10\.0\.42\.34\.linux-x86_64\.so\.tar\.gz<\/Archive>/' $source/network/plugin/flashplugin/pspec.xml > $destination/network/plugin/flashplugin/pspec.xml
 
 #fix for sun-jdk
 echo "sun-jdk x86-64 için uygun hale getiriliyor"
 sed -e 's/linux-i586\.bin/linux-amd64\.bin/' -e 's/plugin\/i386\/ns7/plugin\/amd64\/ns7/' $source/programming/language/java/sun-java/actions.py > $destination/programming/language/java/sun-java/actions.py
-sed 's/<Archive sha1sum="bca59cb275f37b492e69ceecbda75a573d94b553" type="binary">http:\/\/download\.java\.net\/dlj\/binaries\/jdk-6u17-dlj-linux-i586\.bin<\/Archive>/<Archive sha1sum="a42bba8a2efe2a86403702507b99ff63086acea5" type="binary">http:\/\/download\.java\.net\/dlj\/binaries\/jdk-6u17-dlj-linux-amd64\.bin<\/Archive>/' $source/programming/language/java/sun-java/pspec.xml > $destination/programming/language/java/sun-java/pspec.xml
+sed 's/<Archive sha1sum="\.*" type="binary">http:\/\/download\.java\.net\/dlj\/binaries\/jdk-6u17-dlj-linux-i586\.bin<\/Archive>/<Archive sha1sum="a42bba8a2efe2a86403702507b99ff63086acea5" type="binary">http:\/\/download\.java\.net\/dlj\/binaries\/jdk-6u17-dlj-linux-amd64\.bin<\/Archive>/' $source/programming/language/java/sun-java/pspec.xml > $destination/programming/language/java/sun-java/pspec.xml
 
 #fix for catbox
 echo "catbox x86-64 için uygun hale getiriliyor"
-sed -e 's/<Archive sha1sum="23b22e77669a9eff75654d10c0f20753f69795cf" type="targz">http:\/\/cekirdek\.pardus\.org\.tr\/~gurer\/pisi\/catbox-1\.1\.tar\.gz<\/Archive>/<Archive sha1sum="f6ae6f9f2134a98b6261aba531a92f75afdbc2a6" type="targz">http:\/\/cekirdek\.pardus\.org\.tr\/~gurer\/pisi\/catbox-1\.2\.tar\.gz<\/Archive>/' -e 's/<Patch>kernel_build\.patch<\/Patch>/<!--Patch>kernel_build\.patch<\/Patch-->/' $source/system/devel/catbox/pspec.xml > $destination/system/devel/catbox/pspec.xml
+sed -e 's/<Archive sha1sum="\.*" type="targz">http:\/\/cekirdek\.pardus\.org\.tr\/~gurer\/pisi\/catbox-1\.1\.tar\.gz<\/Archive>/<Archive sha1sum="f6ae6f9f2134a98b6261aba531a92f75afdbc2a6" type="targz">http:\/\/cekirdek\.pardus\.org\.tr\/~gurer\/pisi\/catbox-1\.2\.tar\.gz<\/Archive>/' -e 's/<Patch>kernel_build\.patch<\/Patch>/<!--Patch>kernel_build\.patch<\/Patch-->/' $source/system/devel/catbox/pspec.xml > $destination/system/devel/catbox/pspec.xml
 
 #fix for pam
 echo "pam x86-64 için uygun hale getiriliyor"
